@@ -34,6 +34,7 @@ export function Chat() {
 
     receiveMessage(newMessage);
     socket.emit("client:message", message);
+    setMessage("");
   };
 
   return (
@@ -45,6 +46,7 @@ export function Chat() {
           placeholder="Write your message..."
           className="border-2 border-zinc-500 p-2 w-full text-black"
           onChange={handleChange}
+          value={message}
         />
         <ul>
           {messages.map((message, index) => (
